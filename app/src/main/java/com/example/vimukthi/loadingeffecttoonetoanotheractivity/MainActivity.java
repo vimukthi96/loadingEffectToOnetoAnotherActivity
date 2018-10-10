@@ -27,12 +27,8 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ACProgressFlower dialog = new ACProgressFlower.Builder(MainActivity.this)
-                        .direction(ACProgressConstant.DIRECT_CLOCKWISE)
-                        .themeColor(Color.WHITE)
-                        .text("Loading..")
-                        .fadeColor(Color.DKGRAY).build();
-                dialog.show();
+
+                loadingDialog();
                 try {
                     new Handler().postDelayed(new Runnable() {
 
@@ -49,6 +45,15 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+    }
+    public  void loadingDialog(){
+        ACProgressFlower dialog = new ACProgressFlower.Builder(MainActivity.this)
+                .direction(ACProgressConstant.DIRECT_CLOCKWISE)
+                .themeColor(Color.WHITE)
+                .text("Loading..")
+                .fadeColor(Color.DKGRAY).build();
+        dialog.show();
 
     }
 }
